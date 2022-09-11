@@ -2,6 +2,36 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
 
+## Bootstrap support
+
+npm install --save bootstrap@versionNumber
+in angular.json add "node_modules/bootstrap/dist/css/bootstrap.css" to build/styles array
+
+# Binding
+
+## Data binding
+it means to connect variables and functions from your typescript code and your HTML template
+you have two ways to do this most of the time you can use both and endup with the same results
+
+### string interpolation
+
+this means to call a variable from the type script and display it on the template
+{{ anything that return string }}
+{{ service1 }}
+{{ 'service2'}}
+{{ getService3() }}
+favoured when you just want to print a string
+
+### property binding
+
+is the act of binding an html property to a varible [property]="value"
+[disabled]="isDiabled"
+favored when wanting to change a proberty of an element
+
+## Event binding
+binding a proberty to a certain event by using the (eventName)="function()"
+  <button (click)="onSave()">Save</button>
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

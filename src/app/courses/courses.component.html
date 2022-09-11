@@ -1,0 +1,27 @@
+<label for="server"> Server</label>
+<input type="text" id="server" class="form-control" [(ngModel)]="server" />
+<!-- <p *ngIf="serverCreated">{{ server }}</p> -->
+
+<p
+  *ngIf="serverCreated; else noServer"
+  [ngClass]="{ green: serverCreated }"
+  [ngStyle]="{ color: getColor() }"
+>
+  server {{ server }}
+</p>
+<ng-template #noServer>
+  <p [ngClass]="{ red: !serverCreated }" [ngStyle]="{ color: getColor() }">
+    No servers
+  </p>
+</ng-template>
+
+<button
+  class="btn btn-primary"
+  (click)="createServer()"
+  [disabled]="!checkFlag()"
+>
+  reset username
+</button>
+
+<h3>servers</h3>
+<p *ngFor="let s of servers">{{s}}</p>

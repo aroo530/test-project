@@ -1,0 +1,8 @@
+<button class="btn btn-primary" (click)="toggleVis()">display details</button>
+<p *ngIf="visible; else notVis">
+  {{ text }}
+</p>
+
+<ng-template #notVis>
+  <p></p>
+</ng-template>
