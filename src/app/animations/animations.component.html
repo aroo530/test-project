@@ -1,0 +1,9 @@
+<p>animations works!</p>
+<button (click)="changeState()">changeState</button>
+<button (click)="changeShrink()">changeState</button>
+<p>{{state}}</p>
+<div style="width:200px;height: 200px; border: 1px solid black;" [@divState]="state">
+</div>
+<div [@list1] *ngIf="flag">
+  <p>HERE</p>
+</div>

@@ -1,8 +1,40 @@
-<button class="btn btn-primary" (click)="toggleVis()">display details</button>
-<p *ngIf="visible; else notVis">
-  {{ text }}
-</p>
+<!-- string intrepolation -->
+<p>string interpolation</p>
+<p>{{ stringInterpolation }}</p>
+<hr>
 
-<ng-template #notVis>
-  <p></p>
-</ng-template>
+<!-- property binding -->
+<label for="twoway">Two-way binding</label>
+<input type="text" id="twoway" (input)="updateInnerText($event)">
+<p [innerText]="innerText">{{ text }}</p>
+<hr>
+
+<!-- two waybinding -->
+<label for="twoway">Two-way binding</label>
+<input type="text" id="twoway" [(ngModel)]="text">
+<p>{{ text }}</p>
+<hr>
+
+<!-- event binding -->
+<label class="" for="event binding">event binding</label>
+<input type="text" id="event binding" (input)="updateText($event)">
+<p>{{ textEvent }}</p>
+<hr>
+
+<!-- Forms -->
+<form [formGroup]="tempForm" (ngSubmit)="updateTempForm()">
+  <div class="form-group">
+    <label for="exampleInputName1">Name address</label>
+    <input type="Name" class="form-control" id="exampleInputName1" formControlName="formText"
+      aria-describedby="NameHelp" placeholder="Enter Name">
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+</form>
+<p>{{formText}}</p>
+<hr>
+
+<!-- accecing an element from a child component using @Input -->
+<ul>
+  <app-log *ngFor="let log of logs" [log]="log"></app-log>
+</ul>
+<!--  -->

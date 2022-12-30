@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-temporary',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemporaryComponent implements OnInit {
   visible = true;
-  text = 'this is a placholder text';
-  constructor() {}
+  logs = ['log1', 'log2', 'log3'];
+  text = '';
+  innerText = '';
+  stringInterpolation =
+    'just feed the {{ }} anything that returns a string even a function';
+  textOneWay = '';
+  textEvent = '';
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {}
   toggleVis() {
@@ -17,5 +24,18 @@ export class TemporaryComponent implements OnInit {
     } else {
       this.visible = true;
     }
+  }
+  updateText(event: Event) {
+    this.textEvent = (<HTMLInputElement>event.target).value;
+  }
+  updateInnerText(event: Event) {
+    this.innerText = (<HTMLInputElement>event.target).value;
+  }
+  tempForm = this.formBuilder.group({
+    formText: '',
+  });
+  formText = '';
+  updateTempForm() {
+    this.formText = this.tempForm.value.formText!;
   }
 }

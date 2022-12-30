@@ -1,0 +1,18 @@
+<p>directive works!</p>
+<!-- <span > -->
+
+<div class="container" *ngFor="let item of list" [ngSwitch]="item">
+  <!-- <div [ngClass]="{odd: odd(item)}">
+    <p [ngStyle]="{'background-color': !odd(item) ? 'red' : ''}">{{item}}</p>
+  </div> -->
+  <div *appUnless="!odd(item)">
+    <p>{{item}}</p>
+  </div>
+  <p *ngSwitchCase="1">case 1</p>
+  <p *ngSwitchCase="2">case 2</p>
+  <p *ngSwitchDefault>case 0</p>
+</div>
+<div>
+  <p appBasicHighlight>style ME</p>
+  <p appBetterHighlight [highlightColor]="'royalblue'" [defaultColor]="'red'">style ME</p>
+</div>
